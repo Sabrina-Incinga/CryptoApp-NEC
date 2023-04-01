@@ -10,6 +10,7 @@ namespace CryptoWebApp.Support.Models
         public string FromSymbol { get; set; }
         [Required(ErrorMessage = "Target symbols is required")]
         public List<string> ToSymbol { get; set; }
+        [Required(ErrorMessage = "Amount is required")]
         public double Amount { get; set; }
     }
 }

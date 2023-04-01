@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CryptoWebApp.Support.Entities
 {
@@ -10,6 +11,6 @@ namespace CryptoWebApp.Support.Entities
         [Required(ErrorMessage = "Symbol is required")]
         [StringLength(10, ErrorMessage = "Maximum of characters allowed: 10")]
         public string Symbol { get; set; }
-        public double USDPrice { get; set; }
+        public Dictionary<string, CurrencyData> Quote { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace CryptoWebApp.Support.Models
     public class CryptoCoinResponse
     {
         [Required(ErrorMessage = "Status is required")]
-        public string Status { get; set; }
-        public Dictionary<string,CryptoCoin> Data { get; set; }
+        public Status Status { get; set; }
+        public Dictionary<string, List<CryptoCoin>> Data { get; set; }
     }
 }

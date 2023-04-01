@@ -1,3 +1,7 @@
+using CryptoWebApp.Business;
+using CryptoWebApp.Business.Interfaces;
+using CryptoWebApp.Data.Repositories;
+using CryptoWebApp.Data.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +29,9 @@ namespace CryptoWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<ICryptoBusiness, CryptoBusiness>();
+            services.AddScoped<ICryptoRepository, CryptoRepository>();
+            services.AddSingleton<IConfiguration>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
