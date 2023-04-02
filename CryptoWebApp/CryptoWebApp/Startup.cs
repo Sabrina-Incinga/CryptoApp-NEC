@@ -32,6 +32,7 @@ namespace CryptoWebApp
             services.AddScoped<ICryptoBusiness, CryptoBusiness>();
             services.AddScoped<ICryptoRepository, CryptoRepository>();
             services.AddSingleton<IConfiguration>(Configuration);
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +42,8 @@ namespace CryptoWebApp
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseRouting();
 
