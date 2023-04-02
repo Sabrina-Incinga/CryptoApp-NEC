@@ -1,0 +1,48 @@
+<main class="mainContainer">
+    <h2>Lista de Cryptomonedas</h2>
+    <section class="form">
+        <form [formGroup]="currencyChangeform" (ngSubmit)="onSubmit()">
+            <label for="fromSymbol">Seleccione tipo de moneda: 
+            <select name="fromSymbol" id="fromSymbol" formControlName="fromSymbol">
+                <option value={{currency.symbol}} *ngFor="let currency of currencies">
+                    {{currency.symbol}}
+                </option>
+            </select>
+            </label>
+            <label for="amount">Cantidad a cambiar: 
+            <input type="text" id="amount" formControlName="amount">
+            </label>
+            <button type="submit">Cambiar</button>
+            <button type="button" (click)="resetForm()" class="reset">Resetear</button>
+        </form>
+    </section>
+
+    <section *ngIf="cryptocoinList" class="coinList">
+        <article *ngFor="let coin of cryptocoinList" class="coinItem">
+            <header>
+                <h3>
+                    {{ coin.name }}
+                </h3>
+            </header>
+            <body>
+                <p>
+                   <strong>Símbolo: </strong>  {{ coin.symbol }}
+                </p>
+                <p *ngIf="Object.keys(currencyConvertData).length > 1; else elseBlock">
+                    <strong>Cantidad: </strong>  {{Object.keys(currencyConvertData).includes(coin.symbol) ? currencyConvertData[coin.symbol].price : currencyChangeform.get('amount')?.value}}
+                </p>
+                <ng-template #elseBlock>
+                    <strong>Cantidad: </strong> 1
+                </ng-template>
+                <section *ngIf="Object.keys(currencyConvertData).length > 1; else elseBlock2">
+                    <p *ngFor="let property of Object.keys(coin.quote)">
+                        <strong>Precio en USD: </strong>{{ coin.quote[property].price * currencyChangeform.get('amount')?.value}}
+                    </p>
+                </section>
+                <ng-template #elseBlock2>
+                    <p><strong>Precio en USD: </strong>{{ coin.quote["USD"].price }}</p>
+                </ng-template>
+            </body>
+        </article>
+    </section>
+</main>

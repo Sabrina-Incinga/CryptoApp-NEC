@@ -1,0 +1,61 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    padding: 0 1rem 8rem 1rem;
+    overflow: hidden;
+}
+
+.mainContainer .form form{
+    box-shadow: 0rem .01rem .5rem -1px rgb(56, 56, 56);
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 0;
+}
+
+.mainContainer .form form input, .mainContainer .form form select, .mainContainer .form form button{
+    border-radius: .2rem;
+    height: 2.5rem;
+    width: 13rem;
+}
+
+.mainContainer .form form button{
+    cursor: pointer;
+    color: white;
+    background-color: rgb(131, 226, 43, .8);
+    border-color: rgb(131, 226, 43, .5);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.mainContainer .form form button:hover{
+    color: rgb(131, 226, 43);
+    background-color: transparent;
+}
+
+.coinList{
+    display: grid;
+    height: 70%;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 2rem;
+    row-gap: 1.5rem;
+    align-items: stretch;
+}
+
+.coinItem{
+    border-radius: .2rem;
+    box-shadow: 0 0 .5rem .1rem rgb(56, 56, 56);
+}
+
+.coinItem header, .coinItem body {
+    border-radius: .2rem;
+    padding: 1rem 1.5rem;
+}
+
+.coinItem header{
+    border-radius: .2rem .2rem 0rem 0rem;
+    background-color: rgb(138, 43, 226, .5);
+    box-shadow: 0rem .01rem .5rem -1px rgb(56, 56, 56);
+    color: white;
+}

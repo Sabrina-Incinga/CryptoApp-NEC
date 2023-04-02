@@ -1,0 +1,16 @@
+.header{
+    align-items: center;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.header a, .header i{
+    color: white;
+    text-decoration: none;
+}
+
+.header i{
+    font-size: 2rem;
+}
